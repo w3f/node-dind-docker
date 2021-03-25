@@ -27,10 +27,12 @@ workflows:
   test_and_deploy:
     jobs:
       - buildImage:
+          context: dockerhub-bot
           filters:
             tags:
               only: /.*/
       - publishImage:
+          context: dockerhub-bot
           filters:
             branches:
               ignore: /.*/
